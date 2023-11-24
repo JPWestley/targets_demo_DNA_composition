@@ -2,6 +2,11 @@
 
 This pipeline takes .fna files as input, and gets the nucleotide frequencies for them, and then produces a column plot of these nucleotide frequencies.
 
+Targets typically requires two separate scripts. The _targets.R script is used to detail the "targets" or outputs of each step of your pipeline, as well as the name of the function that produces them, and what the inputs are for these functions. 
+
+The second script, here the R/functions.R script, details what each of the functions named in the _targets.R script does. Additionally, you can use base R functions (or functions of loaded packages) in the _targets.R script directly.  
+
+
 ## Getting started
 This pipeline was built in R version 4.2.2. It has not been tested with other versions of R. It additoinally requires Rstudio. To use, clone this git repo by entering the following into the command line:
 
@@ -57,7 +62,7 @@ If you are new to this pipeline, try running `tar_load_everything()`, and then `
 
 ## Why use this method?
 
-Pipelines like this are great if you want to run the same processes on multiple similar input files. Here, we can get the nucleotide frequencies for whatever genomes we put into the genomes directory without having to write any additional code. Furthermore, if you run this pipeline on the three test genomes, and then add another genome to the genomes directory and run it again, targets will identify that it does not need to rerun _nuc_freq_ on the first three files, as they are unchanged. It will only rerun _nuc_freq_ on the new genome, and any functions downstream of this, i.e. the _nuc_freq_long_ function that alters the output of _nuc_freq_ to a long data format, the _combined_tidy_freq_ function that combines the outputs from different genomes, and the _freq_colplot_ function that produces the final figure. 
+Pipelines like this are great if you want to run the same processes on multiple similar input files. Here, we can get the nucleotide frequencies for whatever genomes we put into the genomes directory without having to write any additional code. Furthermore, if you run this pipeline on the three test genomes, and then add another genome to the genomes directory and run it again, targets will identify that it does not need to rerun _nuc_freq_ on the first three files, as they are unchanged. It will only rerun _nuc_freq_ on the new genome, and any functions downstream of this, i.e. the _nuc_freq_long_ function that converts the _nuc_freq_ output for the new genome to a long format, the _combined_tidy_freq_ function that combines the outputs from all genomes, and the _freq_colplot_ function that produces the column plot showing the differences in nucleotide frequency.
 
 This efficiency advantage may not seem like much of a time saving in this example, but for many bigger datasets and more complex pipelines, unnecessarily running functions on data we already have outputs for can cost us lots of time (as well as unnecessarily increasing energy consumption, and for cloud based pipelines, costing extra money too!).
 
