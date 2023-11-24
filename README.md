@@ -3,12 +3,19 @@
 This pipeline takes .fna files as input, and gets the nucleotide, dinucelotide, and trinucleotide frequencies, as well as dinucelotide and trinucleotide transition matrices. Additionally it produces the transition matrices as heatmaps for easy visual inspection, as well as a column plot of nucleotide frequencies for all input genomes.
 
 ## Getting started
-This pipeline was built in R version 4.2.2. It has not been tested with other versions of R. To use clone this git repo and load the project by double clicking on the targets_demo_DNA_DNA_composition.Rproj file.
+This pipeline was built in R version 4.2.2. It has not been tested with other versions of R. To use clone this git repo by entering the following into the command line:
+
+`git clone https://github.com/JPWestley/targets_demo_DNA_composition/tree/main`
+
+Or by downloading the repo by clicking on the green "Code" button, selecting Download zip, and then unzipping the download.
+
+Next, load the project by double clicking on the targets_demo_DNA_DNA_composition.Rproj file.
 
 The R environment needed to run this pipeline can be replicated by using the _renv_ package. First install and load renv by running the following lines of code in your R session.
 
 
 `install.packages("renv")`
+
 `library(renv)`
 
 
