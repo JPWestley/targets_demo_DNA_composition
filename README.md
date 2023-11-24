@@ -7,16 +7,16 @@ This pipeline was built in R version 4.2.2. It has not been tested with other ve
 
 The R environment needed to run this pipeline can be replicated by using the _renv_ package. First install and load renv by running the following lines of code in your R session.
 
-'''
-install.packages("renv")
-library(renv)
-'''
+
+`install.packages("renv")`
+`library(renv)`
+
 
 Now install all R packages used by this pipeline by running:
 
-'''
-renv::restore()
-'''
+
+`renv::restore()`
+
 
   
 Alternatively, manuallly install the following R packages:
@@ -32,7 +32,7 @@ _ggthemes_
 
 Next load the packages needed for the workflow management:
 
-  library(targets,tarchetypes)
+`library(targets,tarchetypes)`
 
 Note, packages used only in the functions file, ./R/functions.R, will be loaded by targets automatically).  
 
