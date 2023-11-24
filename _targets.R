@@ -1,6 +1,7 @@
 # Created by use_targets().
 
-# Load packages required to define the pipeline:
+# Load the R environment 
+library(renv)
 library(targets)
 library(tarchetypes)
 library(tibble)
@@ -28,16 +29,17 @@ targets <- tar_map(
   values = values,
   tar_target(genomes,readDNAStringSet(data_source)), # load genomes
   tar_target(nuc_freq, get_nuc_freq(genomes)), # get nucleotide frequencies
-  tar_target(nuc_freq_long, get_tidy_freq(nuc_freq)), # convert nucleotide frequencies into 'tidy' long form 
+  tar_target(nuc_freq_long, get_tidy_freq(nuc_freq)) # convert nucleotide frequencies into 'tidy' long form 
 )
 
 list(targets, # call all above targets as a list, this must be the last part of the _targets.R script!
-     tar_combine(combined_tidy_freq,targets[11],command = rbind(!!!.x)), # need to specify tar_combine outside of the list where I define the targets, I tell R to combine all outputs of target 11, nuc_freq_long
+     tar_combine(combined_tidy_freq,targets[3],command = rbind(!!!.x)), # need to specify tar_combine outside of the list where I define the targets, I tell R to combine all outputs of target 11, nuc_freq_long
      tar_target(freq_colplot,plot_freq(combined_tidy_freq)) # create a column plot of nucleotide frequencies
 )
 
 # tar_validate() # this checks for errors
 # tar_visnetwork() # this creates a flow chart/DAG of the pipeline
 # tar_make() # this runs the pipeline
-# tar_load_everything() # this loads everything. Warning! will be slow if you have a lot of genomes in the ./genomes input folder
+tar_load_everything() # this loads everything. Warning! will be slow if you have a lot of genomes in the ./genomes input folder
 
+freq_colplot
