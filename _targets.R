@@ -40,6 +40,6 @@ list(targets, # call all above targets as a list, this must be the last part of 
 # tar_validate() # this checks for errors
 # tar_visnetwork() # this creates a flow chart/DAG of the pipeline
 # tar_make() # this runs the pipeline
-tar_load_everything() # this loads everything. Warning! will be slow if you have a lot of genomes in the ./genomes input folder
+# tar_load_everything() # this loads everything. Warning! will be slow if you have a lot of genomes in the ./genomes input folder
 
-freq_colplot
+# freq_colplot
