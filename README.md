@@ -5,7 +5,7 @@ This pipeline takes .fna files as input, and gets the nucleotide frequencies for
 ## Getting started
 This pipeline was built in R version 4.2.2. It has not been tested with other versions of R. It additoinally requires Rstudio. To use, clone this git repo by entering the following into the command line:
 
-`git clone https://github.com/JPWestley/targets_demo_DNA_composition/tree/main`
+`git clone https://github.com/JPWestley/targets_demo_DNA_composition`
 
 Or by downloading the repo by clicking on the green "Code" button, selecting "Download ZIP", and then unzipping the download.
 
