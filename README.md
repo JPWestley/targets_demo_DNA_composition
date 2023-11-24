@@ -1,6 +1,6 @@
 # R targets package demonstration: DNA sequence composition.
 
-This pipeline takes .fna files as input, and gets the nucleotide, dinucelotide, and trinucleotide frequencies, as well as dinucelotide and trinucleotide transition matrices. Additionally it produces the transition matrices as heatmaps for easy visual inspection, as well as a column plot of nucleotide frequencies for all input genomes.
+This pipeline takes .fna files as input, and gets the nucleotide frequencies for them, and then produces a column plot of these nucleotide frequencies.
 
 ## Getting started
 This pipeline was built in R version 4.2.2. It has not been tested with other versions of R. It additoinally requires Rstudio. To use, clone this git repo by entering the following into the command line:
